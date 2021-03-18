@@ -25,20 +25,4 @@ const fs = require('fs');
 //     }).listen(JSON.parse(data.toString()).port);
 // });
 
-// 3
-fs.readFile('./input.txt',function(err, data){
 
-});
-Promise.all([
-    readFile('./input.txt'),
-    readFile('./input45.txt')
-]).then(function (data) {
-    return Promise.all([
-        writeFile('write.txt', data[0].toString().replace(/\s+/g, '-')),
-        writeFile('write2.txt', data[1].toString().replace(/\s+/g, '-'))
-    ])
-}).then(function () {
-    console.log('done');
-}).catch(function (err) {
-    console.log(err);
-});
