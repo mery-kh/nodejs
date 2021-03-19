@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/mery-kh/nodejs/issues"
   },
-  "homepage": "https://github.com/mery-kh/nodejs#readme",
-  "dependencies": {
-    "random": "^3.0.3"
-  }
+  "homepage": "https://github.com/mery-kh/nodejs#readme"
 }
