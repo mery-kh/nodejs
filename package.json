@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mery-kh/nodejs/issues"
   },
-  "homepage": "https://github.com/mery-kh/nodejs#readme"
+  "homepage": "https://github.com/mery-kh/nodejs#readme",
+  "dependencies": {
+    "fs-extra": "^9.1.0"
+  }
 }

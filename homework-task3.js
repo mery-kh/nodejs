@@ -1,21 +1,13 @@
-const fs = require('fs');
-const {Readable,Writable,Duplex,Transform} = require('stream');
-class RemoveSpecialChars extends Transform{
-    constructor() {
-        super();
-    }
-    _transform(chunk, encoding, next) {
-        chunk.toString().split(' ').forEach(word => {
-            if (!/[^a-zA-Z0-9]/.test(word)) {
-                this.push(word);
-            }
-        });
-        next();
-    }
+const fs = require('fs').promises;
+
+async function replaceFunc(){
+    let read =  await  fs.readFile('homework3.txt', 'utf-8');
+    await fs.writeFile('replace.txt', read.replace(/[,]/g,''));
+    await fs.unlink('homework3.txt');
 }
-const read = fs.createReadStream('./homeworkr.txt',{
-    highWaterMark:4
+replaceFunc().then(function (){
+
+    console.log('done');
+}).catch((err) =>{
+    console.log(err)
 });
-const write = fs.createWriteStream('./homeworkw.txt');
-const myStream = new RemoveSpecialChars();
-read.pipe(myStream).pipe(write);

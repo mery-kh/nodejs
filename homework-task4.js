@@ -1,10 +1,15 @@
-const fsPromise = require('fs/promises')
-async function func(name){
-    let read = await fsPromise.readFile(name,'utf-8');
-    await fsPromise.writeFile(name,read.split(/ /g).map(word => `${word.substring(0,1).toUpperCase()}${word.substring(1)}`).join(" "));
+const fs = require('fs');
+const web=['html','css','js','txt'];
+
+fs.mkdir('web',err=>{
+    if (err){
+        throw err;
+    }
+})
+for(let val of web){
+    fs.writeFile('web/'+val+'.'+val,val,err=>{
+        if(err){
+            throw err;
+        }
+    });
 }
-func('input.txt').then(function (){
-    console.log('done');
-}).catch((err) =>{
-    console.log(err)
-});
