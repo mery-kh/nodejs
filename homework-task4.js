@@ -8,4 +8,3 @@ func('input.txt').then(function (){
 }).catch((err) =>{
     console.log(err)
 });
-
