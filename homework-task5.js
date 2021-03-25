@@ -7,7 +7,7 @@ async function moveFiles() {
       await fsExtra.copy('Homework5', 'newDir');
       let stats = await fs.stat('Homework5/'+file);
       if(stats.isFile() && stats.size > 1024){
-          await fsExtra.move('./newDir/'+file);
+          await fsExtra.move('./Homework5/'+file, './newDir/'+file);
       }
   }
 }
