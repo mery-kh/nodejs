@@ -1,8 +1,6 @@
-const os = require('os');
-const fs = require('fs');
-fs.writeFile(os.hostname()+'.txt', JSON.stringify(os.userInfo()),err =>{
-    if(err){
-        throw  err;
+const http = require('http');
+http.createServer( function (req, res) {
+    if (req.url === '/sunny'){
+        console.log('Yes')
     }
-});
-
+}).listen(3000);
