@@ -1,13 +1,12 @@
 const multer = require('multer');
 const  mimeType = require('mime-types');
-// const  upload = multer({dest:'uploads/'});
+const random = require('random');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/')
+        cb(null, 'Homework/uploads/')
     },
     filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + '.' + mimeType.extension(file.mimetype) )
+        cb(null,random.int(100000,999999) + '.' + mimeType.extension(file.mimetype) )
     }
 })
-
 module.exports = multer({ storage: storage })
