@@ -21,6 +21,6 @@ mongoose.connect('mongodb://localhost/nodejs-sunny',{
     useFindAndModify:false,
     useCreateIndex: true
 }).then(()=>{
-    app.listen(2021);
+    app.listen(2022);
 });
 // http.createServer(app).listen(2021);
