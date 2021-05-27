@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 const router = require('./router');
 const app = express();
 const cors = require('cors');
+const io = require('./socket')
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use('/Homework', express.static('Homework'))
 global.__homedir = __dirname;
 router(app);
 // const postsRouter = require('./routes/posts');
@@ -21,6 +23,7 @@ mongoose.connect('mongodb://localhost/nodejs-sunny',{
     useFindAndModify:false,
     useCreateIndex: true
 }).then(()=>{
-    app.listen(2022);
+   const server = http.createServer(app);
+   server.listen(2021);
+io(server)
 });
-// http.createServer(app).listen(2021);
